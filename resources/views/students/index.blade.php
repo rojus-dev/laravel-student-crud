@@ -18,6 +18,7 @@
                 <th>Telefonas</th>
                 <th>Adresas</th>
                 <th>Miestas</th>
+                <th>Grupė</th>
                 <th>Veiksmai</th>
             </tr>
         </thead>
@@ -27,10 +28,12 @@
                     <td>{{ $student->id }}</td>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->surname }}</td>
-                    <td>{{ $student->birthday }}</td>
+                    <td>{{ $student->gim_data }}</td>
                     <td>{{ $student->phone }}</td>
                     <td>{{ $student->address }}</td>
-                    <td>{{ $student->city?->name }}</td>
+                    <td>{{ $student->city->name }}</td>
+                    <td>{{ $student->grupe?->kodas }}</td>
+                    @auth
                     <td>
                         <a href="{{ route('students.edit', $student->id) }}" class="btn btn-primary btn-sm">Redaguoti</a>
 
@@ -40,6 +43,7 @@
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Ar tikrai norite ištrinti?')">Ištrinti</button>
                         </form>
                     </td>
+                    @endauth
                 </tr>
             @endforeach
         </tbody>

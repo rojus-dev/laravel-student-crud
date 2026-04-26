@@ -21,7 +21,7 @@
 
         <div class="mb-3">
             <label class="form-label">Gimimo data</label>
-            <input type="date" name="birthday" class="form-control" required>
+            <input type="date" name="gim_data" class="form-control" required>
         </div>
 
         <div class="mb-3">
@@ -43,6 +43,16 @@
             </select>
         </div>
 
+        <div class="mb-3">
+            <label class="form-label">Grupė</label>
+            <select name="grupe_id" class="form-control" required>
+                @foreach($grupes as $grupe)
+                    <option value="{{ $grupe->id }}">
+                    {{ $grupe->kodas }} - {{ $grupe->pavadinimas }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-success">Išsaugoti</button>
     </form>
 </div>

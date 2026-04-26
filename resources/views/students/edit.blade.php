@@ -22,7 +22,7 @@
 
         <div class="mb-3">
             <label class="form-label">Gimimo data</label>
-            <input type="date" name="birthday" class="form-control" value="{{ old('birthday', $student->birthday) }}" required>
+            <input type="date" name="gim_data" class="form-control" value="{{ old('gim_data', $student->gim_data) }}" required>
         </div>
 
         <div class="mb-3">
@@ -41,6 +41,17 @@
                 @foreach ($cities as $city)
                     <option value="{{ $city->id }}" {{ old('city_id', $student->city_id) == $city->id ? 'selected' : '' }}>
                         {{ $city->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Grupė</label>
+            <select name="grupe_id" class="form-control" required>
+                @foreach($grupes as $grupe)
+                    <option value="{{ $grupe->id }}" {{ old('grupe_id', $student->grupe_id) == $grupe->id ? 'selected' : '' }}>
+                        {{ $grupe->kodas }} - {{ $grupe->pavadinimas }}
                     </option>
                 @endforeach
             </select>
