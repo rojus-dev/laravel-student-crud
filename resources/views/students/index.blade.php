@@ -5,7 +5,12 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>Studentų sąrašas</h2>
-        <a href="{{ route('students.create') }}" class="btn btn-success">Pridėti studentą</a>
+
+        @auth
+            <a href="{{ route('students.create') }}" class="btn btn-success">
+                Pridėti studentą
+            </a>
+        @endauth
     </div>
 
     <table class="table table-striped">
@@ -19,7 +24,10 @@
                 <th>Adresas</th>
                 <th>Miestas</th>
                 <th>Grupė</th>
-                <th>Veiksmai</th>
+
+                @auth
+                    <th>Veiksmai</th>
+                @endauth
             </tr>
         </thead>
         <tbody>
@@ -31,16 +39,22 @@
                     <td>{{ $student->gim_data }}</td>
                     <td>{{ $student->phone }}</td>
                     <td>{{ $student->address }}</td>
-                    <td>{{ $student->city->name }}</td>
-                    <td>{{ $student->grupe?->kodas }}</td>
+                    <td>{{ $student->city ? $student->city->name : '' }}</td>
+                    <td>{{ $student->grupe ? $student->grupe->kodas : '' }}</td>
+
                     @auth
                     <td>
-                        <a href="{{ route('students.edit', $student->id) }}" class="btn btn-primary btn-sm">Redaguoti</a>
+                        <a href="{{ route('students.edit', $student->id) }}" class="btn btn-primary btn-sm">
+                            Redaguoti
+                        </a>
 
                         <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Ar tikrai norite ištrinti?')">Ištrinti</button>
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Ar tikrai norite ištrinti?')">
+                                Ištrinti
+                            </button>
                         </form>
                     </td>
                     @endauth
