@@ -19,6 +19,7 @@
                 <th>ID</th>
                 <th>Vardas</th>
                 <th>Pavardė</th>
+                <th>Asmens kodas</th>
                 <th>Gimimo data</th>
                 <th>Telefonas</th>
                 <th>Adresas</th>
@@ -36,6 +37,7 @@
                     <td>{{ $student->id }}</td>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->surname }}</td>
+                    <td>{{ $student->asmens_kodas }}</td>
                     <td>{{ $student->gim_data }}</td>
                     <td>{{ $student->phone }}</td>
                     <td>{{ $student->address }}</td>

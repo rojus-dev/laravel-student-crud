@@ -13,11 +13,14 @@ class StudentFactory extends Factory
         return [
             'name' => $this->faker->firstName,
             'surname' => $this->faker->lastName,
+            'asmens_kodas' => '39001010005',
             'gim_data' => $this->faker->date(),
             'address' => $this->faker->address,
-            'phone' => $this->faker->phoneNumber,
+            'phone' => '+37061234567',
             'city_id' => City::inRandomOrder()->first()->id ?? 1,
             'grupe_id' => Grupe::inRandomOrder()->first()->id ?? 1,
+            
+
         ];
     }
 }

@@ -21,6 +21,12 @@
         </div>
 
         <div class="mb-3">
+            <label class="form-label">Asmens kodas</label>
+            <input type="text" name="asmens_kodas" class="form-control"
+            value="{{ old('asmens_kodas', $student->asmens_kodas) }}" required>
+        </div>
+
+        <div class="mb-3">
             <label class="form-label">Gimimo data</label>
             <input type="date" name="gim_data" class="form-control" value="{{ old('gim_data', $student->gim_data) }}" required>
         </div>

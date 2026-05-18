@@ -10,7 +10,16 @@ class Student extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'surname', 'birthday', 'address', 'phone', 'city_id'];
+    protected $fillable = [
+        'name',
+        'surname',
+        'asmens_kodas',
+        'gim_data',
+        'address',
+        'phone',
+        'city_id',
+        'grupe_id',
+    ];
 
     public function city()
     {
