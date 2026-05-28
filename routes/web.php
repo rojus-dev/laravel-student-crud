@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,5 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('students', StudentController::class)->except(['index']);
 });
+
+Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
 
 require __DIR__.'/auth.php';
