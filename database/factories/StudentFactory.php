@@ -20,7 +20,6 @@ class StudentFactory extends Factory
             'city_id' => City::inRandomOrder()->first()->id ?? 1,
             'grupe_id' => Grupe::inRandomOrder()->first()->id ?? 1,
             
-
         ];
     }
 }
